@@ -1,9 +1,9 @@
 import UseGener from "../hooks/useGenere"
 
 const GenereList = () => {
-    const {geners,error,isloading}=UseGener()
+    const {data}=UseGener()
   return (
-    <ul>{geners.map((gener)=><li key={gener.id}>{gener.name}</li>)}</ul>
+    <ul>{data.map((gener)=><li key={gener.id}>{gener.name}</li>)}</ul>
   )
 }
 
