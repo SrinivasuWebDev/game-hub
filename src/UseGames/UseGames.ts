@@ -26,20 +26,27 @@ const useGame=()=>{
 
      let[games,setGames]=useState<Game[]>([])
      let[error,setError]=useState("")
+     let[isloading,setLoading]=useState(false)
     
     useEffect(()=>{
         const controller=new AbortController()
-
+        setLoading(true)
         ApiClient.get<FetchGamesData>("/games",{signal:controller.signal})
-        .then(res=>setGames(res.data.results))
+        .then(res=>{
+            setGames(res.data.results)
+            setLoading(false)                
+        })
         .catch((errormes)=>{
             if(errormes instanceof CanceledError) return;
-            setError(errormes.message)})
+            setError(errormes.message)
+            setLoading(false)
+        })
+            
 
         return ()=>controller.abort();
     },[]
 )
     
-    return {games,error}
+    return {games,error,isloading}
 }
 export default useGame
