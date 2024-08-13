@@ -5,6 +5,7 @@ import GameGrid from "./component/GameGrid"
 import GenereList from "./component/GenereList"
 import { useState } from "react"
 import { Gener } from "./hooks/useGenere"
+import PlatForm from "./component/PlatForm"
 
  
 const App = () => {
@@ -34,9 +35,10 @@ const App = () => {
       <GenereList selectedGenere={selectedgenere} onselectGenere={(genere)=>setselectedGenere(genere)}></GenereList>
     </GridItem>
     </Show>
-    <GridItem area='main'><GameGrid selectedGenere={selectedgenere}></GameGrid></GridItem>
-                
-                            
+    <GridItem area='main'>
+      <PlatForm></PlatForm>
+      <GameGrid selectedGenere={selectedgenere}></GameGrid>
+    </GridItem>             
     </Grid></>
   )
 }
