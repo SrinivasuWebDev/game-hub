@@ -31,7 +31,7 @@ const App = () => {
     </GridItem>
     <Show above="lg">
     <GridItem area='aside' bg='teal 50' paddingX={5}>
-      <GenereList onselectGenere={(genere)=>setselectedGenere(genere)}></GenereList>
+      <GenereList selectedGenere={selectedgenere} onselectGenere={(genere)=>setselectedGenere(genere)}></GenereList>
     </GridItem>
     </Show>
     <GridItem area='main'><GameGrid selectedGenere={selectedgenere}></GameGrid></GridItem>
