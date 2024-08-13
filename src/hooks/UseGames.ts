@@ -3,6 +3,7 @@ import ApiClient from "../service/ApiClient.ts"
 import { CanceledError } from "axios"
 import UseData from "./useData.ts"
 import { Gener } from "./useGenere.ts"
+import { GameQuery } from "../App.tsx"
 
 export interface Platform{
     id:number
@@ -19,10 +20,11 @@ export  interface Game{
  }
  
  
-const useGame=(selectedGenere: Gener | null,selectedPlatform:Platform | null)=>
+const useGame=(gameQuery:GameQuery)=>
     UseData<Game>('/games',
         {params:{
-            genres:selectedGenere?.id,platforms:selectedPlatform?.id
+            genres:gameQuery.genere?.id,
+            platforms:gameQuery.Platform?.id
         }},
-        [selectedGenere?.id,selectedPlatform?.id])
+        [gameQuery])
 export default useGame
