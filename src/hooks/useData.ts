@@ -1,6 +1,6 @@
 import { useState ,useEffect} from "react"
 import ApiClient from "../service/ApiClient"
-import { CanceledError } from "axios"
+import { AxiosRequestConfig, CanceledError } from "axios"
 
 
 
@@ -9,7 +9,7 @@ interface FetchResponse<T>{
     results:T[]
 }
 
-const UseData=<T>(endpoint:string)=>{
+const UseData=<T>(endpoint:string,requestConfig?:AxiosRequestConfig,dep?:any[])=>{
     
     let[data,setData]=useState<T[]>([])
     let[error,setError]=useState("")
@@ -21,7 +21,7 @@ const UseData=<T>(endpoint:string)=>{
      
        setLoading(true)
       
-       ApiClient.get<FetchResponse<T>>(endpoint,{signal:controller.signal})
+       ApiClient.get<FetchResponse<T>>(endpoint,{signal:controller.signal,...requestConfig})
        .then(res=>{
            setData(res.data.results)
            setLoading(false)                
@@ -34,7 +34,7 @@ const UseData=<T>(endpoint:string)=>{
            
 
        return ()=>controller.abort();
-   },[]
+   },dep ? [...dep] :[]
 )
    
    return {data,error,isloading}
