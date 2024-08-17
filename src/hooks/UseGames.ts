@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
-import ApiClient from "../service/ApiClient.ts"
-import { CanceledError } from "axios"
+    // import { useEffect, useState } from "react"
+    // import ApiClient from "../service/ApiClient.ts"
+    // import { CanceledError } from "axios"
+    // import { Gener } from "./useGenere.ts"
 import UseData from "./useData.ts"
-import { Gener } from "./useGenere.ts"
 import { GameQuery } from "../App.tsx"
 
 export interface Platform{

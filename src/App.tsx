@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, HStack } from "@chakra-ui/react"
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react"
 import { Show } from '@chakra-ui/react'
 import NavBar from "./component/NavBar"
 import GameGrid from "./component/GameGrid"
