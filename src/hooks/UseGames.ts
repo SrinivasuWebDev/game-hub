@@ -25,7 +25,8 @@ const useGame=(gameQuery:GameQuery)=>
         {params:{
             genres:gameQuery.genere?.id,
             platforms:gameQuery.Platform?.id,
-            ordering:gameQuery.selectedOrder
+            ordering:gameQuery.selectedOrder,
+            search:gameQuery.onsearch
         }},
         [gameQuery])
 export default useGame

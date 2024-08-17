@@ -3,11 +3,17 @@ import logo from "../assets/networking_7493463.png"
 import DarkModeSwitch from "./DarkModeSwitch"
 import InputSearchBar from "./InputSearchBar"
 
-const NavBar = () => {
+interface Prop{
+  onsearch:(submitInput:string)=>void
+}
+
+
+
+const NavBar = ({onsearch}:Prop) => {
   return (
     <HStack justifyContent="space-between" paddingEnd='10px'>
         <Img src={logo} boxSize={'60px'}></Img>
-        <InputSearchBar></InputSearchBar>
+        <InputSearchBar onsearch={onsearch}></InputSearchBar>
         <DarkModeSwitch ></DarkModeSwitch>
     </HStack>
   )
