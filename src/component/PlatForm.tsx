@@ -19,7 +19,7 @@ let{data}=usePlatform()
         {selectedPlatform?.name || "platform"}
         </MenuButton>
         <MenuList>
-            {data.map((gamestation)=><MenuItem onClick={()=>{onSelectedPlatform(gamestation)}}>{gamestation.name}</MenuItem>)}
+            {data.map((gamestation)=><MenuItem key={gamestation.id} onClick={()=>{onSelectedPlatform(gamestation)}}>{gamestation.name}</MenuItem>)}
         </MenuList>
     </Menu>
 

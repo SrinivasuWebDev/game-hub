@@ -16,7 +16,7 @@ const GenereList = ({onselectGenere,selectedGenere}:Props) => {
     if(isloading) return <Spinner/>
 
   return (
-    <List>{data.map((gener)=><ListItem paddingY={3}>
+    <List>{data.map((gener)=><ListItem key={gener.id} paddingY={3}>
         <HStack>
            <Image borderRadius="8px" boxSize="36px" src={getCropedIamge(gener.image_background)}></Image>
            <Button fontWeight={gener.id===selectedGenere?.id?"bold":"normal"}  variant="link" fontSize="lg" onClick={()=>{onselectGenere(gener)}}>{gener.name}</Button>

@@ -20,7 +20,7 @@ const SortSelector = ({onSelecedSortOrders,currentOrder}:Prop) => {
 
   return (
     <Menu>
-        <MenuButton as={Button} rightIcon={<BsChevronDown/>}>{displayCurrentOderToUser?.label  || "sort By"}</MenuButton>
+        <MenuButton as={Button} rightIcon={<BsChevronDown/>}>{displayCurrentOderToUser?.label  || "Relevance"}</MenuButton>
         <MenuList>
           {sortListArray.map((sorts)=><MenuItem onClick={()=>{onSelecedSortOrders(sorts.value)}} key={sorts.value} value={sorts.value}>{sorts.label}</MenuItem>)}
         </MenuList>
