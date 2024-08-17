@@ -8,6 +8,7 @@ import { Gener } from "./hooks/useGenere"
 import PlatForm from "./component/PlatForm"
 import { Platform } from "./hooks/UseGames"
 import SortSelector from "./component/SortSelector"
+import { GameHeader } from "./component/GameHeader"
 
 export interface GameQuery{
   genere: Gener | null
@@ -46,12 +47,15 @@ const App = () => {
     </GridItem>
     </Show>
     <GridItem area='main'>
-      <Flex paddingLeft={9}>
-         <Box marginRight={7}>
-           <PlatForm selectedPlatform={gameQuery.Platform} onSelectedPlatform={(Platform)=>setGameQuery({...gameQuery,Platform})}></PlatForm>
-         </Box>
-         <SortSelector currentOrder={gameQuery.selectedOrder} onSelecedSortOrders={(selectedOrder)=>setGameQuery({...gameQuery,selectedOrder})}></SortSelector>
-      </Flex>
+      <Box paddingLeft={9}>
+        <GameHeader gameQuery={gameQuery}></GameHeader>
+        <Flex >
+           <Box marginRight={7}>
+             <PlatForm selectedPlatform={gameQuery.Platform} onSelectedPlatform={(Platform)=>setGameQuery({...gameQuery,Platform})}></PlatForm>
+           </Box>
+           <SortSelector currentOrder={gameQuery.selectedOrder} onSelecedSortOrders={(selectedOrder)=>setGameQuery({...gameQuery,selectedOrder})}></SortSelector>
+        </Flex>
+      </Box>
       <GameGrid gameQuery={gameQuery}></GameGrid>
     </GridItem>             
     </Grid></>
