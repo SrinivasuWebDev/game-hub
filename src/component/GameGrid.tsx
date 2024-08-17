@@ -17,10 +17,10 @@ const GameGrid = ({gameQuery}:Props) => {
   let {data,error,isloading}=useGame(gameQuery)
 
   const SKELETON=[1,2,3,4,5,6,7,8,9,10,11,12]
+  
+  if(error) return <Text>{error}</Text>
 
   return (
-    <>
-    {error && <Text>{error}</Text>}
     <SimpleGrid 
         columns={{sm:1,md:2,lg:3,xl:5}} 
         spacing={10} 
@@ -28,7 +28,6 @@ const GameGrid = ({gameQuery}:Props) => {
         {isloading && SKELETON.map((ite)=><SkeletonCard key={ite}></SkeletonCard>)}
         {data.map((game)=><GameCard key={game.id} game={game}></GameCard>)}
     </SimpleGrid>
-    </>
   )
 }
 
